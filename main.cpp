@@ -1,34 +1,41 @@
-
-//3- Exercise: Weekly Weather Report 
 #include <iostream>
+#include <string>
 using namespace std;
 
-struct CityWeather {
-    string cityName;
-    float temps[7];
+class Book {
+private:
+    int id;
+    string title;
+    double price;
+    double discountPercent;
+
+public:
+    // Constructor عشان ندي قيم للكتاب أول ما ننشئه
+    Book(int i, string t, double p, double d) {
+        id = i;
+        title = t;
+        price = p;
+        discountPercent = d;
+    }
+
+    // Method لحساب السعر النهائي
+    double calcFinalPrice() {
+        return price - (price * discountPercent / 100);
+    }
+
+    // دالة لطباعة التفاصيل
+    void display() {
+        cout << "Book: " << title << " (ID: " << id << ")" << endl;
+        cout << "Original Price: " << price << endl;
+        cout << "Final Price after " << discountPercent << "% discount: " << calcFinalPrice() << endl;
+    }
 };
 
 int main() {
-    CityWeather city;
-
-    cout << "Enter city name: ";
-    cin >> city.cityName;
-
-    cout << "Enter 7 temperatures:\n";
-    for (int i = 0; i < 7; i++) {
-        cin >> city.temps[i];
-    }
-
-    float highest = city.temps[0];
-
-    for (int i = 1; i < 7; i++) {
-        if (city.temps[i] > highest) {
-            highest = city.temps[i];
-        }
-    }
-
-    cout << "\nCity: " << city.cityName << endl;
-    cout << "Highest Temperature: " << highest << endl;
+    // إنشاء Object من الكلاس
+    Book b1(101, "C++ OOP Mastery", 250.0, 15.0);
+    
+    b1.display();
 
     return 0;
 }
