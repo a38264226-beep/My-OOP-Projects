@@ -13,4 +13,4 @@ A simple program that demonstrates **Encapsulation** in C++.
 ### How to Run:
 1. Compile the `main.cpp` file.
 2. Run the generated executable.
-![Final Result](result.png)
+![Final Result](result.png) 
